@@ -37,6 +37,13 @@ function changeIP() {
 }
 
 function main() {
+    if ("getNewIPArray" == CUROPR) {
+        for (let index = 0; index < IPARRAY.length; index++) {
+            println(IPARRAY[index].NEW_IP);
+        }
+        return;
+    }
+
     println("Begin to check Args");
     if (checkArgs()) {
         println("done");
@@ -45,13 +52,19 @@ function main() {
         return false;
     }
 
-    println("Begin to change HA IP");
-    if (changeIP()) {
-        println("done");
+    if (CUROPR == "changeIP") {
+        println("Begin to change HA IP");
+        if (changeIP()) {
+            println("done");
+        } else {
+            println("false");
+            return false;
+        }
     } else {
-        println("false");
+        println("Unknown operation");
         return false;
     }
+    return;
 }
 
 main();
