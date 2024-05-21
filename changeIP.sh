@@ -5,8 +5,8 @@ test $? -ne 0 && echo "[ERROR] Failed to get IPARRAY.NEW_IP from config.js" && e
 echo "Begin to check ping NEWIP"
 for NEWIP in "${NEWIPARRAY[@]}"
 do
-    echo "Ping ${NEWIP} 3 time"
-    ping -c 3 "${NEWIP}" > /dev/null
+    echo "Ping ${NEWIP} 1 time"
+    ping -c 1 "${NEWIP}" > /dev/null
     test $? -ne 0 && echo "[ERROR] Failed to ping ${NEWIP}" && exit 1
     echo "Pass"
 done
